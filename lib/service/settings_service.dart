@@ -12,13 +12,13 @@ class SettingsService {
     prefs.setString(AppConstants.themeKey, mode);
   }
 
-  // Future<String?> getLocaleCode() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   return prefs.getString(AppConstants.localeKey);
-  // }
+  Future<String?> getLocaleCode() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(AppConstants.localeKey);
+  }
 
-  // Future<void> saveLocaleCode(String code) async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   prefs.setString(AppConstants.localeKey, code);
-  // }
+  Future<void> saveLocaleCode(String code) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppConstants.localeKey, code);
+  }
 }

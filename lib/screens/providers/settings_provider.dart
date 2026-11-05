@@ -29,10 +29,10 @@ class SettingsProvider extends ChangeNotifier {
   }
 
   // update locale
-  // Future<void> updateLocale(Locale newLocale) async {
-  //   if (_locale == newLocale) return;
-  //   _locale = newLocale;
-  //   notifyListeners();
-  //   await _settingsRepository.saveLocale(newLocale);
-  // }
+  Future<void> updateLocale(Locale newLocale) async {
+    if (_locale == newLocale) return;
+    _locale = newLocale;
+    notifyListeners();
+    await _settingsRepository.saveLocale(newLocale);
+  }
 }

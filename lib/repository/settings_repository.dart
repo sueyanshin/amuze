@@ -22,12 +22,12 @@ class SettingsRepository {
     await _settingsService.saveThemeMode(themeMode.name);
   }
 
-  // Future<Locale> loadLocale() async {
-  //   final code = await _settingsService.getLocaleCode();
-  //   return Locale(code ?? 'en');
-  // }
+  Future<Locale> loadLocale() async {
+    final code = await _settingsService.getLocaleCode();
+    return Locale(code ?? 'en');
+  }
 
-  // Future<void> saveLocale(Locale locale) async {
-  //   await _settingsService.saveLocaleCode(locale.languageCode);
-  // }
+  Future<void> saveLocale(Locale locale) async {
+    await _settingsService.saveLocaleCode(locale.languageCode);
+  }
 }

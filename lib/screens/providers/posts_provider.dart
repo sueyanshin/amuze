@@ -6,7 +6,7 @@ class PostProvider extends ChangeNotifier {
   final PostRepository _postRepository;
   new(this._postRepository);
 
-  static final int _pageSize = 1;
+  static final int _pageSize = 10;
   int _currentPage = 1;
 
   bool _isLoading = false;
@@ -27,7 +27,7 @@ class PostProvider extends ChangeNotifier {
     if (_isLoading) return;
 
     _isLoading = true;
-    _isLoadingMore = true;
+    _isLoadingMore = false;
     _errorMessage = null;
     _currentPage = 1;
     _hasMore = true;
@@ -41,7 +41,8 @@ class PostProvider extends ChangeNotifier {
       );
       _posts.addAll(newPosts);
       _currentPage = 1;
-      _hasMore = newPosts.length == _pageSize;
+      // _hasMore = newPosts.length == _pageSize;
+      _hasMore = true;
     } catch (e) {
       _errorMessage = e.toString();
     } finally {
@@ -55,7 +56,7 @@ class PostProvider extends ChangeNotifier {
       return;
     }
 
-    _isLoading = true;
+    _isLoadingMore = true;
     _errorMessage = null;
     notifyListeners();
 
@@ -66,12 +67,14 @@ class PostProvider extends ChangeNotifier {
         pageSize: _pageSize,
       );
       _posts.addAll(newPosts);
+      print("Calling after addAll .....");
       _currentPage = nextPage;
-      _hasMore = newPosts.length == _pageSize;
+      // _hasMore = newPosts.length == _pageSize;
+      _hasMore = true;
     } catch (e) {
       _errorMessage = e.toString();
     } finally {
-      _isLoading = false;
+      _isLoadingMore = false;
       notifyListeners();
     }
   }

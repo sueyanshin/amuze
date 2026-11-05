@@ -78,9 +78,7 @@ class PostCard extends StatelessWidget {
                 ),
 
                 IconButton(
-                  onPressed: () {
-                    // TODO: Show post options.
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.more_horiz),
                   visualDensity: VisualDensity.compact,
                 ),
@@ -102,9 +100,9 @@ class PostCard extends StatelessWidget {
             ),
 
           // Post image
-          if (post.filePath != null && post.filePath!.isNotEmpty)
+          if (post.thumbnail != null && post.thumbnail!.isNotEmpty)
             CachedNetworkImage(
-              imageUrl: post.filePath!,
+              imageUrl: post.thumbnail!,
               width: double.infinity,
               fit: BoxFit.cover,
               placeholder: (context, url) => const SizedBox(
@@ -131,24 +129,18 @@ class PostCard extends StatelessWidget {
                 _PostStat(
                   icon: Icons.thumb_up_alt_outlined,
                   count: post.likes ?? 0,
-                  onTap: () {
-                    // TODO: Implement like API.
-                  },
+                  onTap: () {},
                 ),
                 _PostStat(
                   icon: Icons.comment_outlined,
                   count: post.comments ?? 0,
-                  onTap: () {
-                    // TODO: Open comments.
-                  },
+                  onTap: () {},
                 ),
                 const Spacer(),
                 _PostStat(
                   icon: Icons.remove_red_eye_outlined,
                   count: post.views ?? 0,
-                  onTap: () {
-                    // TODO: Show view details if supported.
-                  },
+                  onTap: () {},
                 ),
               ],
             ),

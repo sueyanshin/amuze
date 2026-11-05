@@ -9,4 +9,11 @@ class NavProvider extends ChangeNotifier {
     _currentIndex = index;
     notifyListeners();
   }
+
+  void resetIndex() {
+    if (_currentIndex != 0) {
+      _currentIndex = 0;
+    }
+    notifyListeners();
+  }
 }

@@ -1,5 +1,4 @@
 import 'package:amuze_app/screens/settings_page.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -23,18 +22,17 @@ class ProfilePage extends StatelessWidget {
                     CircleAvatar(
                       radius: 60,
                       backgroundColor: theme.colorScheme.primary,
-                      child:
-                          // Text(
-                          //   'Jimmy',
-                          //   style: theme.textTheme.titleMedium?.copyWith(
-                          //     color: theme.colorScheme.onPrimaryContainer,
-                          //     fontWeight: .bold,
-                          //   ),
-                          // ),
-                          CachedNetworkImage(
-                            fit: .cover,
-                            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg2eDnnC171CPUNWXfOHsBrFRTLLtL8akN5mqsCcn6DQ&s",
-                          ),
+                      child: Text(
+                        'HA',
+                        style: theme.textTheme.displayLarge?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                          fontWeight: .bold,
+                        ),
+                      ),
+                      // CachedNetworkImage(
+                      //   fit: .cover,
+                      //   imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg2eDnnC171CPUNWXfOHsBrFRTLLtL8akN5mqsCcn6DQ&s",
+                      // ),
                     ),
                     const SizedBox(height: 16),
                     Text(

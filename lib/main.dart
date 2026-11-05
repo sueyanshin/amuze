@@ -29,16 +29,28 @@ Future<void> main() async {
   final settingsService = SettingsService();
   final settingsRepository = SettingsRepository(settingsService);
 
+  final savedLocale = await settingsRepository.loadLocale();
+
   runApp(
     EasyLocalization(
       path: 'assets/translations',
       supportedLocales: const [Locale('en'), Locale('my')],
       fallbackLocale: const Locale('en'),
+      startLocale: savedLocale,
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider<AuthProvider>.value(value: authProvider),
           ChangeNotifierProvider(create: (_) => PostProvider(postRepository)),
-          ChangeNotifierProvider(create: (_) => NavProvider()),
+          // ChangeNotifierProvider(create: (_) => NavProvider()),
+          ChangeNotifierProxyProvider<AuthProvider, NavProvider>(
+            create: (_) => NavProvider(),
+            update: (context, authProvider, navProvider) {
+              if (authProvider.isAuthenticated == false) {
+                navProvider!.resetIndex();
+              }
+              return navProvider!;
+            },
+          ),
           ChangeNotifierProvider(
             create: (_) => SettingsProvider(settingsRepository),
           ),

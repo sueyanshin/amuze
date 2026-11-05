@@ -30,15 +30,18 @@ class _SettingsPageState extends State<SettingsPage> {
           final isDark = provider.themeMode.isDark;
           print(provider.locale.languageCode);
           return SingleChildScrollView(
-            padding: .symmetric(horizontal: 16, vertical: 8),
+            padding: .symmetric(horizontal: 8, vertical: 8),
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                Text(
-                  'settings.preferences'.tr(),
-                  style: theme.textTheme.titleMedium!.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontWeight: .w400,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    'settings.preferences'.tr(),
+                    style: theme.textTheme.titleMedium!.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontWeight: .w400,
+                    ),
                   ),
                 ),
 
@@ -72,9 +75,11 @@ class _SettingsPageState extends State<SettingsPage> {
                       showTrailingIcon: false,
                       initialSelection: context.locale.languageCode,
 
-                      onSelected: (String? code) {
+                      onSelected: (String? code) async {
                         if (code != null) {
-                          context.setLocale(Locale(code));
+                          final newLocale = Locale(code);
+                          await context.setLocale(newLocale);
+                          await provider.updateLocale(newLocale);
                         }
                       },
                       inputDecorationTheme: InputDecorationTheme(
@@ -102,6 +107,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: SizedBox(
                         width: double.infinity,
                         child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.error,
+                            foregroundColor: theme.colorScheme.onPrimary,
+                          ),
                           onPressed: () {
                             authProvider.logout();
                             Navigator.pushReplacement(
