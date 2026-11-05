@@ -4,7 +4,9 @@
         "retry_loading_more": "Retry loading more",
         "no_posts_found": "No Posts Found",
         "loading": "Loading...",
-        "unknown_user": "Unknown User"
+        "unknown_user": "Unknown User",
+        "follow": "Follow",
+        "following": "Following"
     },
     "settings": {
         "account_and_preferences": "ACCOUNT & PREFERENCES",

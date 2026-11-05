@@ -29,10 +29,6 @@ class ProfilePage extends StatelessWidget {
                           fontWeight: .bold,
                         ),
                       ),
-                      // CachedNetworkImage(
-                      //   fit: .cover,
-                      //   imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg2eDnnC171CPUNWXfOHsBrFRTLLtL8akN5mqsCcn6DQ&s",
-                      // ),
                     ),
                     const SizedBox(height: 16),
                     Text(

@@ -74,7 +74,11 @@ class PostCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text(post.isFollow == true ? 'Followed' : 'Follow'),
+                  child: Text(
+                    post.isFollow == true
+                        ? 'common.following'.tr()
+                        : 'common.follow'.tr(),
+                  ),
                 ),
 
                 IconButton(

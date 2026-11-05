@@ -4,7 +4,9 @@
         "retry_loading_more": "နောက်ထပ်ဒေတာများကို ပြန်လည်ရယူရန် ကြိုးစားပါ",
         "no_posts_found": "မည်သည့် ပို့စ်မျှ ရှာမတွေ့ပါ",
         "loading": "ခဏစောင့်ပါ...",
-        "unknown_user": "အမည်မသိသူ"
+        "unknown_user": "အမည်မသိသူ",
+        "follow": "ဖော်လိုလုပ်ရန်",
+        "following": "ဖော်လိုလုပ်ထားသည်"
     },
     "settings": {
         "account_and_preferences": "အကောင့် နှင့် ဦးစားပေးချက်များ",

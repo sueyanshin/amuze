@@ -16,7 +16,7 @@ class SettingsProvider extends ChangeNotifier {
   // load on startup
   Future<void> _initializeSettings() async {
     _themeMode = await _settingsRepository.loadThemeMode();
-    // _locale = await _settingsRepository.loadLocale();
+    _locale = await _settingsRepository.loadLocale();
     notifyListeners();
   }
 
