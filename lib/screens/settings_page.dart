@@ -113,12 +113,15 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                           onPressed: () {
                             authProvider.logout();
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
-                              ),
-                            );
+                            if (context.mounted) {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                                (route) => false,
+                              );
+                            }
                           },
 
                           icon: Icon(Icons.logout),

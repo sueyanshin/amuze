@@ -24,7 +24,7 @@
         "login_button": "Amuze သို့ ဝင်ရောက်မည်",
         "logout_button": "ထွက်မည်",
         "new_to_multiverse": "ကောမစ် ကမ္ဘာမှ အဖွဲ့ဝင်အသစ် ဖြစ်ပါသလား။",
-        "create_account": "စာဖတ်သူ အကောင့်သစ် ပြုလုပ်မည်",
+        "create_account": "အကောင့်သစ် ပြုလုပ်မည်",
         "validation": {
             "enter_registered_email_or_phone": "စာရင်းသွင်းထားသော အီးမေးလ် သို့မဟုတ် ဖုန်းနံပါတ် ထည့်ပါ",
             "enter_password": "ကျေးဇူးပြု၍ စကားဝှက် ထည့်ပါ",

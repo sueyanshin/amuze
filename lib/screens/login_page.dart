@@ -1,6 +1,7 @@
 import 'package:amuze_app/app_button.dart';
 import 'package:amuze_app/main.dart';
 import 'package:amuze_app/screens/providers/auth_provider.dart';
+import 'package:amuze_app/screens/providers/settings_provider.dart';
 import 'package:amuze_app/widgets/app_text_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -27,19 +28,21 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  Future<void> login() async {
-    if (!_formKey.currentState!.validate()) return;
+  Future<bool> login() async {
+    if (!_formKey.currentState!.validate()) return false;
     final success = await context.read<AuthProvider>().login(
       emailOrPhone: _emailController.text,
       password: _passwordController.text,
     );
+    if (success) return true;
 
-    if (!mounted) return;
+    if (!mounted) return false;
     if (!success) {
       final message = context.read<AuthProvider>().errorMessage;
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(message.toString())));
     }
+    return false;
   }
 
   @override
@@ -54,7 +57,11 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: .start,
               children: [
-                const SizedBox(height: 100),
+                Consumer<SettingsProvider>(
+                  builder: (context, settingsProvider, child) {
+                    return Container(height: 100, alignment: .topEnd);
+                  },
+                ),
                 Text(
                   'Amuze',
                   style: theme.textTheme.titleMedium!.copyWith(
@@ -147,14 +154,17 @@ class _LoginPageState extends State<LoginPage> {
                                           color: theme.colorScheme.onPrimary,
                                         ),
                                   ),
-                            onPressed: () {
-                              provider.isLoading ? null : login();
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => MainPage(),
-                                ),
-                              );
+                            onPressed: () async {
+                              if (provider.isLoading) return;
+                              bool loginSuccess = await login();
+                              if (loginSuccess && context.mounted) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MainPage(),
+                                  ),
+                                );
+                              }
                             },
                           );
                         },
