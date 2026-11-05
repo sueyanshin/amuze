@@ -67,7 +67,6 @@ class PostProvider extends ChangeNotifier {
         pageSize: _pageSize,
       );
       _posts.addAll(newPosts);
-      print("Calling after addAll .....");
       _currentPage = nextPage;
       // _hasMore = newPosts.length == _pageSize;
       _hasMore = true;

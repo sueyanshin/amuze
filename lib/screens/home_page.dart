@@ -33,20 +33,7 @@ class _HomePageState extends State<HomePage> {
     final threshold = position.maxScrollExtent - 300;
 
     if (position.pixels >= threshold && !position.outOfRange) {
-      final provider = context.read<PostProvider>();
-
-      print("isLoading: ${provider.isLoading}");
-      print("isLoadingMore: ${provider.isLoadingMore}");
-      print("hasMore: ${provider.hasMore}");
-      print("errorMessage: ${provider.errorMessage}");
-
-      if (!provider.isLoading && // false
-          !provider.isLoadingMore && // false
-          provider.hasMore && // true
-          provider.errorMessage == null) {
-        print("Calling fetchNextPage safely from scroll");
-        provider.fetchNextPage();
-      }
+      context.read<PostProvider>().fetchNextPage();
     }
   }
 
