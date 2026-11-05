@@ -68,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: theme.colorScheme.primary,
                   ),
                 ),
+                const SizedBox(height: 10),
                 Text(
                   'auth.welcome_back'.tr(),
                   style: theme.textTheme.titleLarge!.copyWith(
@@ -76,6 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                     color: theme.colorScheme.onSurface,
                   ),
                 ),
+                const SizedBox(height: 10),
+
                 Text(
                   'auth.login_subtext'.tr(),
                   style: theme.textTheme.bodyMedium!.copyWith(

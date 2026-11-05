@@ -163,79 +163,69 @@ class PanelVerseThemeExtension
 
 /// Main Theme Definitions
 class AppTheme {
-  // Shared Typography using GoogleFonts Space Grotesk
-  // static TextTheme _buildTextTheme(Color primary, Color secondary, Color muted) {
-  //   final base = GoogleFonts.spaceGroteskTextTheme();
-  //   return base.copyWith(
-  //     displayLarge: base.displayLarge?.copyWith(
-  //       color: primary,
-  //       fontWeight: FontWeight.w700,
-  //       letterSpacing: -0.5,
-  //     ),
-  //     headlineMedium: base.headlineMedium?.copyWith(
-  //       color: primary,
-  //       fontWeight: FontWeight.w700,
-  //       letterSpacing: -0.2,
-  //     ),
-  //     headlineSmall: base.headlineSmall?.copyWith(
-  //       color: primary,
-  //       fontWeight: FontWeight.w600,
-  //     ),
-  //     titleMedium: base.titleMedium?.copyWith(
-  //       color: primary,
-  //       fontWeight: FontWeight.w600,
-  //     ),
-  //     bodyLarge: base.bodyLarge?.copyWith(
-  //       color: primary,
-  //       height: 1.5,
-  //     ),
-  //     bodyMedium: base.bodyMedium?.copyWith(
-  //       color: secondary,
-  //       height: 1.4,
-  //     ),
-  //     bodySmall: base.bodySmall?.copyWith(
-  //       color: muted,
-  //       fontSize: 12,
-  //     ),
-  //     labelLarge: base.labelLarge?.copyWith(
-  //       color: primary,
-  //       fontWeight: FontWeight.w600,
-  //     ),
-  //   );
-  // }
-
   static TextTheme _buildTextTheme(
     Color primary,
     Color secondary,
     Color muted,
   ) {
+    const String fontFamily = 'Padauk';
+    const List<String> fallbackFonts = ['sans-serif'];
     // Use the standard Material 3 geometry and baseline text styles
-    final base =
-        Typography.material2021().black; // or .white depending on your theme
+    final base = Typography.material2021().black;
 
     return base.copyWith(
       displayLarge: base.displayLarge?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+
         color: primary,
         fontWeight: FontWeight.w700,
         letterSpacing: -0.5,
       ),
       headlineMedium: base.headlineMedium?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+
         color: primary,
         fontWeight: FontWeight.w700,
         letterSpacing: -0.2,
       ),
       headlineSmall: base.headlineSmall?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+
         color: primary,
         fontWeight: FontWeight.w600,
       ),
       titleMedium: base.titleMedium?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+
         color: primary,
         fontWeight: FontWeight.w600,
       ),
-      bodyLarge: base.bodyLarge?.copyWith(color: primary, height: 1.5),
-      bodyMedium: base.bodyMedium?.copyWith(color: secondary, height: 1.4),
-      bodySmall: base.bodySmall?.copyWith(color: muted, fontSize: 12),
+      bodyLarge: base.bodyLarge?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+        color: primary,
+        height: 1.5,
+      ),
+      bodyMedium: base.bodyMedium?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+        color: secondary,
+        height: 1.4,
+      ),
+      bodySmall: base.bodySmall?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+        color: muted,
+        fontSize: 12,
+      ),
       labelLarge: base.labelLarge?.copyWith(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+
         color: primary,
         fontWeight: FontWeight.w600,
       ),
